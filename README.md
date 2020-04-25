@@ -34,3 +34,8 @@
 [MIT](http://opensource.org/licenses/MIT)
 
 Copyright (c) 2017-present, Smallwei
+
+
+-----
+未修改：
+tree下拉组件会默认滚动到底部（fixed: 在select组件第一个位置添加一个隐藏的option）
