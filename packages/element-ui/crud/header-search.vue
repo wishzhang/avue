@@ -25,6 +25,13 @@
                 :name="item.prop"
                 v-if="item.searchslot"></slot>
         </template>
+        <!--搜索自定义区域-->
+        <template slot="search"
+                  slot-scope="{}">
+          <slot name="search"
+                :row="searchForm"
+                :size="crud.controlSize"></slot>
+        </template>
       </avue-form>
     </div>
   </el-collapse-transition>

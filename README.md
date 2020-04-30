@@ -34,3 +34,6 @@
 [MIT](http://opensource.org/licenses/MIT)
 
 Copyright (c) 2017-present, Smallwei
+
+--------------
+node版本 9.11.2
