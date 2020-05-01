@@ -22,7 +22,8 @@
                     placeholder="输入关键字进行过滤"
                     v-model="filterText"></el-input>
         </div>
-        <el-option :value="text">
+        <el-option :value="text" v-show="false">fixed:to make the el-tree keep in the top.</el-option>
+        <el-option>
           <el-tree :data="dicList"
                    class="tree-option"
                    style="padding:10px 0;"
