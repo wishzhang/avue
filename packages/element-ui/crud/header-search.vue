@@ -100,7 +100,7 @@ export default cteate({
           if (ele.search) {
             ele = Object.assign(ele, {
               type: getSearchType(ele),
-              multiple: ['checkbox'].includes(ele.type),
+              multiple: ele.searchMultiple,
               span: ele.searchSpan || this.config.searchSpan,
               labelWidth: ele.searchLabelWidth || option.searchSpan || this.config.searchLabelWidth,
               tip: ele.searchTip,
@@ -109,13 +109,13 @@ export default cteate({
               filterMethod: ele.searchFilterMethod,
               checkStrictly: ele.searchCheckStrictly || option.searchCheckStrictly,
               gutter: ele.searchGutter || option.searchGutter,
-              tags: ele.searchTags,
+              tags: vaildData(ele.searchTags, this.config.searchTags),
               row: ele.searchRow,
               formslot: ele.searchslot,
               rules: ele.searchRules,
               disabled: ele.searchDisabled,
               readonly: ele.searchReadonly,
-              value: ele.searchValue
+              value: ele.searchValuee
             })
             let whiteList = ['display', 'disabled', 'readonly']
             whiteList.forEach(key => {

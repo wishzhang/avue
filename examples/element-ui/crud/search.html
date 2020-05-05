@@ -3,35 +3,35 @@
 <html class="no-js">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta charset="utf-8"/>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <title></title>
-  <meta name="description" content="" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content=""/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
 
   <script src="https://cdn.bootcss.com/axios/0.19.0-beta.1/axios.js"></script>
 
   <script src="https://cdn.bootcss.com/vue/2.5.17/vue.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.12.0/theme-chalk/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.12.0/theme-chalk/index.css"/>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/element-ui/2.12.0/index.js"></script>
-  <link rel="stylesheet" href="../../../lib/index.css" />
+  <link rel="stylesheet" href="../../../lib/index.css"/>
   <script src="../../../lib/avue.js"></script>
 </head>
 
 <body>
-  <div id="app">
-    <avue-crud ref="crud" :option="option" :data="data" @search-change="searchChange">
-      <template slot="searchMenu" slot-scope="{size}">
-        <el-button :size="size">测试</el-button>
-      </template>
-      <template slot-scope="scope" slot="checkboxSearch">
-        <span>123456</span>
-      </template>
-      <template slot-scope="scope" slot="checkboxForm">
-        <span> 123456</span>
-      </template>
-    </avue-crud>
-  </div>
+<div id="app">
+  <avue-crud ref="crud" :option="option" :data="data" @search-change="searchChange">
+    <template slot="searchMenu" slot-scope="{size}">
+      <el-button :size="size">测试</el-button>
+    </template>
+    <template slot-scope="scope" slot="checkboxSearch">
+      <span>123456</span>
+    </template>
+    <template slot-scope="scope" slot="checkboxForm">
+      <span> 123456</span>
+    </template>
+  </avue-crud>
+</div>
 </body>
 <script>
   new Vue({
@@ -53,51 +53,148 @@
           index: true,
           searchMenuSpan: 6,
           emptyText: '自定义暂无数据提示语',
-          column: [{
-            label: '姓名',
-            prop: 'name',
-          }, {
-            label: '多选',
-            prop: 'checkbox',
-            type: 'checkbox',
-            search: true,
-            searchslot: true,
-            formslot: true,
-            dicData: [{
-              label: 1,
-              value: 1
+          column: [
+            {
+              label: '姓名',
+              prop: 'name',
+            },
+            {
+              label: '多选',
+              prop: 'checkbox',
+              type: 'select',
+              search: true,
+              searchSpan: 8,
+              searchMultiple: true,
+              searchFilterable: true,
+              dicData: [
+                {
+                  label: '中国近代史',
+                  value: 1
+                },
+                {
+                  label: '美国',
+                  value: 2
+                },
+                {
+                  label: '美国信息科技数据结构与算法2',
+                  value: 3
+                },
+                {
+                  label: '美国信息科技数据结构与算法3',
+                  value: 4
+                },
+                {
+                  label: '美国信息科技数据结构与算法4',
+                  value: 5
+                },
+                {
+                  label: '美国信息科技数据结构与算法5',
+                  value: 6
+                },
+                {
+                  label: '美国信息科技数据结构与算法6',
+                  value: 7
+                },
+                {
+                  label: '美国信息科技数据结构与算法7',
+                  value: 8
+                },
+                {
+                  label: '美国信息科技数据结构与算法8',
+                  value: 9
+                },
+                {
+                  label: '美国信息科技数据结构与算法9',
+                  value: 19
+                },
+                {
+                  label: '美国信息科技数据结构与算法0',
+                  value: 21
+                },
+              ],
+            },
+            {
+              label: '多选',
+              prop: 'checkbox2',
+              component: 'input',
+              type:'tree',
+              searchMultiple: true,
+              search: true,
+              dicData: [
+                {
+                  label: '中国近代史',
+                  value: 1
+                },
+                {
+                  label: '美国信息科技数据结构与算法1',
+                  value: 2
+                },
+                {
+                  label: '美国信息科技数据结构与算法2',
+                  value: 3
+                },
+                {
+                  label: '美国信息科技数据结构与算法3',
+                  value: 4
+                },
+                {
+                  label: '美国信息科技数据结构与算法4',
+                  value: 5
+                },
+                {
+                  label: '美国信息科技数据结构与算法5',
+                  value: 6
+                },
+                {
+                  label: '美国信息科技数据结构与算法6',
+                  value: 7
+                },
+                {
+                  label: '美国信息科技数据结构与算法7',
+                  value: 8
+                },
+                {
+                  label: '美国信息科技数据结构与算法8',
+                  value: 9
+                },
+                {
+                  label: '美国信息科技数据结构与算法9',
+                  value: 19
+                },
+                {
+                  label: '美国信息科技数据结构与算法0',
+                  value: 21
+                },
+              ],
+            },
+            {
+              label: '年龄',
+              prop: 'sex',
+              search: true,
+              searchRules: [
+                {
+                  required: true,
+                  message: '请输入年龄',
+                  trigger: 'blur'
+                }
+              ]
             }, {
-              label: 2,
-              value: 2
-            }],
-          }, {
-            label: '年龄',
-            prop: 'sex',
-            search: true,
-            searchRules: [
-              {
-                required: true,
-                message: '请输入年龄',
-                trigger: 'blur'
-              }
-            ]
-          }, {
-            label: '日期',
-            prop: 'datetime',
-            type: 'datetime',
-          }, {
-            label: '测试',
-            prop: 'test',
-            search: true
-          }, {
-            label: '字典',
-            prop: 'dic',
-            type: 'select',
-            dicData: [{
-              label: 1,
-              value: 1
+              label: '日期',
+              prop: 'datetime',
+              type: 'datetime',
+            }, {
+              label: '测试',
+              prop: 'test',
+              search: true
+            }, {
+              label: '字典',
+              prop: 'dic',
+              type: 'select',
+              dicData: [{
+                label: 1,
+                value: 1
+              }]
             }]
-          }]
         }
       }, 0)
     },

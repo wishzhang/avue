@@ -23,7 +23,7 @@
                     v-model="filterText"></el-input>
         </div>
         <el-option :value="text" v-show="false">fixed:to make the el-tree keep in the top.</el-option>
-        <el-option>
+        <el-option value="-___-___-___-">
           <el-tree :data="dicList"
                    class="tree-option"
                    style="padding:10px 0;"
