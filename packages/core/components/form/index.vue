@@ -5,6 +5,7 @@
              :column="column"
              :dic="dic"
              :disabled="disabled"
+             :readonly="readonly"
              :placeholder="getPlaceholder(column)"
              :props="column.props || props"
              :propsHttp="column.propsHttp || propsHttp"
@@ -70,6 +71,9 @@ export default {
       type: String
     },
     disabled: {
+      type: Boolean
+    },
+    readonly: {
       type: Boolean
     },
     column: {

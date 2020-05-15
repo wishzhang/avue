@@ -161,6 +161,7 @@ export default create({
       option.column = this.crud.propOption;
       if (this.isView) {
         option.menuBtn = false;
+        option.detail = true;
       } else {
         if (!option.menuPosition) option.menuPosition = 'right'
         if (this.isAdd) {

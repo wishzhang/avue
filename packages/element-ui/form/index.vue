@@ -1,5 +1,5 @@
 <template>
-  <div :class="[b(),{'avue--view':isView}]"
+  <div :class="[b(),{'avue--view':isView,'avue--form--detail':isDetail}]"
        :style="{width:setPx(parentOption.formWidth,'100%')}">
     <el-form ref="form"
              status-icon
@@ -42,7 +42,7 @@
                           :column="column"
                           :label="form['$'+column.prop]"
                           :size="column.size || controlSize"
-                          :disabled="vaildDisabled(column)"
+                          :disabled="isDetail || vaildDisabled(column) || allDisabled"
                           :dic="DIC[column.prop]"
                           :name="column.prop"
                           v-if="column.formslot"></slot>
@@ -56,7 +56,7 @@
                                :upload-after="uploadAfter"
                                :upload-delete="uploadDelete"
                                :upload-preview="uploadPreview"
-                               :disabled="vaildDisabled(column) || allDisabled"
+                               :disabled="isDetail || vaildDisabled(column) || allDisabled"
                                v-model="form[column.prop]"
                                :enter="parentOption.enter"
                                @enter="submit"
@@ -79,7 +79,7 @@
                    v-if="column.row && column.span!==24 && column.count"></div>
             </template>
             <slot name="search"></slot>
-            <form-menu v-if="!isMenu">
+            <form-menu v-if="!isDetail && !isMenu">
               <template slot-scope="{size}"
                         slot="menuForm">
                 <slot name="menuForm"
@@ -88,7 +88,7 @@
             </form-menu>
           </div>
         </avue-group>
-        <form-menu v-if="isMenu">
+        <form-menu v-if="!isDetail && isMenu">
           <template slot-scope="{size}"
                     slot="menuForm">
             <slot name="menuForm"
@@ -166,6 +166,9 @@ export default create({
     isMenu () {
       return this.columnOption.length != 1
     },
+    isDetail () {
+      return this.option.detail
+    },
     isAdd () {
       return this.boxType === "add"
     },
@@ -174,6 +177,12 @@ export default create({
     },
     isView () {
       return this.boxType === "view"
+    },
+    disabled () {
+      return this.parentOption.disabled
+    },
+    readonly () {
+      return this.parentOption.readonly
     },
     propOption () {
       let list = [];
@@ -234,10 +243,6 @@ export default create({
     },
   },
   props: {
-    disabled: {
-      type: Boolean,
-      default: false
-    },
     uploadBefore: Function,
     uploadAfter: Function,
     uploadDelete: Function,
