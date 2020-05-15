@@ -36,7 +36,6 @@ export default {
   dateBtn: false,
   updateBtn: true,
   saveBtn: true,
-  cancelBtn: true,
   refreshBtn: true,
   columnBtn: true,
   filterBtn: false,
@@ -71,5 +70,6 @@ export default {
   searchGutter: 20,
   searchLabelWidth: 80,
   searchSpan: 6,
+  searchTags: true,
   dateDefault: true
 };

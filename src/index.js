@@ -96,7 +96,7 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 const Avue = {
-  version: '2.1.0',
+  version: '2.3.7',
   locale: locale.locale,
   install
 };
